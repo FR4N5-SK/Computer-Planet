@@ -5,7 +5,7 @@ import CardUser from './CardUser';
 
 function Storage({data, type}) {
   const [pagina, setPagina] = useState(1);
-  const [porPagina, setPorPagina] = useState(4);
+  const [porPagina, setPorPagina] = useState(8);
 
   const maximo = Math.ceil(data.length / porPagina);
 

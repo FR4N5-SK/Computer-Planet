@@ -66,6 +66,15 @@ function ModalProduct({ modal, setModal, edit, product }) {
         await peticionEditProducts(formDataToSend, product._id);
     } else {
         await peticionAddProducts(formDataToSend);
+        setValues({
+          name: "",
+          description: "",
+          price: "",
+          currency: "",
+          amount: "",
+          image: "",
+          category: "",
+        });
     }
     setModal(!modal)
   };
