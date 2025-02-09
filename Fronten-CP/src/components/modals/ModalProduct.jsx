@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import formValidation from "../../validation/validations";
 import { alertInfo } from "../../alerts/alerts";
 import { Context } from "../../context/Context";
@@ -24,6 +24,21 @@ function ModalProduct({ modal, setModal, edit, product }) {
     category: "",
   });
   const [fileName, setFileName] = useState("");
+
+  useEffect(() => {
+    const load = async () => {
+      setValues({
+        name: product.name,
+        description: product.description,
+        price: product.price,
+        currency: product.currency,
+        amount: product.amount,
+        image: product.image,
+        category: product.category,
+      })
+    };
+    load();
+  }, [product]);
 
   const handleInputChange = (e) => {
     const { id, value, type, files } = e.target;
